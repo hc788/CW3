@@ -59,6 +59,12 @@
     export default{
         name: "Checkout",
         props: ["cart","order","isLetter","isNumber", "submitForm", "canSubmitForm","removeFromCartButton","grabIdFromCart"],
+        methods:
+            {
+                RemoveCheckoutPage(lesson){
+                    this.$emit("remove-from-cart-button",lesson);
+                }
+            }
         
   };
     

@@ -39,8 +39,8 @@
     </header>
     <main>
       <component :is="currentView" :cartItemCount="cartItemCount" :cart="cart" :lessons="lessons"
-        :isDisabled="isDisabled" :canAddToCart="canAddToCart" :grabIdFromCart="grabIdFromCart"
-        :removeFromCartButton="removeFromCartButton" :itemsLeft="itemsLeft" :sortedProducts="sortedProducts"
+        :isDisabled="isDisabled"  :grabIdFromCart="grabIdFromCart"
+        :remove-from-cart-button="removeFromCartButton" :removeFromCartButton="removeFromCartButton"  :itemsLeft="itemsLeft" :sortedProducts="sortedProducts"
         :addToCartButton="addToCartButton" :order="order" :isLetter="isLetter" :isNumber="isNumber"
         :canSubmitForm="canSubmitForm"></component>
     </main>
@@ -258,9 +258,9 @@ export default {
       return this.cart.length || "";
     },
     //the user will be able to add to cart if there availablitly for the lesson is biger than 0
-    canAddToCart(lesson) {
-      return lesson.availableInventory > this.cartItemCount(lesson.id);
-    },
+    // canAddToCart(lesson) {
+    //   return lesson.availableInventory > this.cartItemCount(lesson.id);
+    // },
     //the submit button will only be visable once the user has entered name and phone number
     canSubmitForm: function () {
       if (this.cart.length > 0 && this.order.name != '' && this.order.phoneNumber != '')

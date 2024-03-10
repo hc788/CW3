@@ -67,7 +67,7 @@
 <script>
 export default {
     name: "Lessons",
-    props: ["lessons","sortBy","direction","imgPath","direction","itemsLeft","canAddToCart","isDisabled","cartItemCount","sortedProducts","addToCartButton"],
+    props: ["lessons","sortBy","direction","imgPath","direction","itemsLeft","isDisabled","cartItemCount","sortedProducts","addToCartButton"],
 }
 
 
