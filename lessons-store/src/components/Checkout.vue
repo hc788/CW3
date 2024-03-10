@@ -7,7 +7,6 @@
                     <h2>Shopping Cart</h2>
                     <div class="listOfLessons" v-for="lesson in cart">
 
-                        {{ cart }}
                         <figure>
                             <img v-bind:src="lesson.newImg" />
                         </figure>
@@ -50,8 +49,8 @@
                     </div>
                     <!--Place order button- once the user has entered the input in correct format, user will get a confirmation that the order has been submitted successfully-->
                     <div>
-                        <button v-on:click="submitForm" v-if="canSubmitForm">Place Order</button>
-                        <button v-on:click="submitForm" disabled="disabled" v-else>Place Order</button>
+                        <button v-on:click="submitF" v-if="canSubmitForm">Place Order</button>
+                        <button v-on:click="submitForm" v-else  disabled="disabled">Place Order</button>
                     </div>
                 </div>
             </div>
@@ -66,6 +65,10 @@
                 RemoveCheckoutPage(lesson){
                     this.$emit("remove-from-cart-button",lesson);
                 },
+
+                submitF() {
+                    this.$emit("submit-form")
+                }
 
                
 

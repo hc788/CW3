@@ -42,7 +42,7 @@
       :grabIdFromCart="grabIdFromCart" :showCheckout="showCheckout" @add-lesson="addToCartButton"
       @remove-from-cart-button="removeFromCartButton" :itemsLeft="itemsLeft" :sortedProducts="sortedProducts"
       :addToCartButton="addToCartButton" :order="order" :isLetter="isLetter" :isNumber="isNumber"
-      :canSubmitForm="canSubmitForm"></component>
+      @submit-form="canSubmitForm"></component>
     <!-- </main> -->
   </div>
 </template>
