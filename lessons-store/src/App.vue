@@ -37,13 +37,13 @@
       </div>
 
     </header>
-    <main>
-      <component :is="currentView" :cartItemCount="cartItemCount" :cart="cart" :lessons="lessons"
-        :isDisabled="isDisabled"  :grabIdFromCart="grabIdFromCart"
-        :remove-from-cart-button="removeFromCartButton" :removeFromCartButton="removeFromCartButton"  :itemsLeft="itemsLeft" :sortedProducts="sortedProducts"
-        :addToCartButton="addToCartButton" :order="order" :isLetter="isLetter" :isNumber="isNumber"
-        :canSubmitForm="canSubmitForm"></component>
-    </main>
+    <!-- <main> -->
+    <component :is="currentView" :cartItemCount="cartItemCount" :cart="cart" :lessons="lessons" :isDisabled="isDisabled"
+      :grabIdFromCart="grabIdFromCart" :showCheckout="showCheckout" @add-lesson="addToCartButton"
+      @remove-from-cart-button="removeFromCartButton" :itemsLeft="itemsLeft" :sortedProducts="sortedProducts"
+      :addToCartButton="addToCartButton" :order="order" :isLetter="isLetter" :isNumber="isNumber"
+      :canSubmitForm="canSubmitForm"></component>
+    <!-- </main> -->
   </div>
 </template>
 
@@ -106,13 +106,13 @@ export default {
   },
   methods: {
     showCheckout() {
-      if (this.currentView == Lessons) {
+      if (this.currentView === Lessons) {
         this.currentView = Checkout;
       }
       else {
         this.currentView = Lessons;
       }
-      this.showProduct = this.showProduct ? false : true;
+      // this.showProduct = this.showProduct ? false : true;
 
     },
     addToCartButton: function (lesson) {

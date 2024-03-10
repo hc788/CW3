@@ -53,7 +53,7 @@
                             <p> Price:£ {{lesson.price}} </p>
                             <p> Spaces: {{lesson.availableInventory}}</p>
                             <!--display of Add to cart button and display of how many lessons are left-->
-                            <button class="addToCartButton" v-on:click="addToCartButton(lesson)"
+                            <button class="addToCartButton" v-on:click="addLesson(lesson)"
                                 v-bind:disabled="isDisabled(lesson)"> Add to Cart</button>
                             <span v-if="lesson.availableInventory < 5"> Only {{lesson.availableInventory}} left!</span>
                             <span v-if='lesson.availableInventory === 0'>All out!</span>
@@ -67,7 +67,12 @@
 <script>
 export default {
     name: "Lessons",
-    props: ["lessons","sortBy","direction","imgPath","direction","itemsLeft","isDisabled","cartItemCount","sortedProducts","addToCartButton"],
+    props: ["lessons","cart","sortBy","direction","imgPath","direction","itemsLeft","isDisabled","cartItemCount","sortedProducts","addToCartButton"],
+    methods: {
+        addLesson(lesson) {
+            this.$emit("add-lesson", lesson)
+        }
+    }
 }
 
 

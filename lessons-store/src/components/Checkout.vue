@@ -6,6 +6,8 @@
 
                     <h2>Shopping Cart</h2>
                     <div class="listOfLessons" v-for="lesson in cart">
+
+                        {{ cart }}
                         <figure>
                             <img v-bind:src="lesson.newImg" />
                         </figure>
@@ -13,7 +15,7 @@
                         <p> Subject:{{lesson.subject}} </p>
                         <p> Location:{{lesson.location}} </p>
                         <p> Price:£ {{lesson.price}} </p>
-                        <button class="addToCartButton" v-on:click="removeFromCartButton(lesson)"> Remove</button>
+                        <button class="addToCartButton" @click="RemoveCheckoutPage(lesson)"> Remove</button>
                     </div>
                     <!--When the user has finished purchasing the lessons, he/she will be asked to enter name,phone number in order to complete order-->
                     <p>
@@ -58,12 +60,16 @@
 <script>
     export default{
         name: "Checkout",
-        props: ["cart","order","isLetter","isNumber", "submitForm", "canSubmitForm","removeFromCartButton","grabIdFromCart"],
+        props: ["cart","order","isLetter","isNumber", "submitForm", "canSubmitForm","removeFromCartButton","showCheckout","grabIdFromCart"],
         methods:
             {
                 RemoveCheckoutPage(lesson){
                     this.$emit("remove-from-cart-button",lesson);
-                }
+                },
+
+               
+
+                
             }
         
   };
